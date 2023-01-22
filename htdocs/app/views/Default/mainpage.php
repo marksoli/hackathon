@@ -3,12 +3,12 @@
 <head>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 	<link rel="stylesheet" type="text/css" href="/css/peepit.css" />
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<title>Main Page</title>
 </head>
 
 <body>
-	<div class="container">
+	<div class="container-fluid" style="padding:0;">
 			<ul>
 			<li><a href="/Default/index">Spendwiser</a></li>
 			<li><a href="/Login/Logout">Logout</a></li>
@@ -20,7 +20,7 @@
 			echo "Hello $name";
 			if(!$user->complete){
 				echo  "<h1><center>First Visit Questionnaire</center></h1>";
-				echo "<form action='/Default/complete' method='POST'>
+				echo "<form class='' action='/Default/complete' method='POST'>
 				<input type='text' style='display:none;' name='complete' id='complete' />
 
 				<label for = 'age'  id = 'age'>What is your age?</label> <br>				
