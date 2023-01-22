@@ -7,8 +7,8 @@
 </head>
 <div class="sidenav">
          <div class="login-main-text">
-            <h2>SpendWiser<br> Register Page</h2>
-            <p>Login or register from here to access.</p>
+            <h2>SpendWiser<br></h2>
+            <h3>Get richer.</h3>
          </div>
       </div>
       <div class="main">

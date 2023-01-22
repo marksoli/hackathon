@@ -12,7 +12,7 @@
 	<div class="container-fluid" style="padding:0;">
 			<ul>
 			<li><a href="/Default/index">Spendwiser</a></li>
-			<li><a href="/Default/invest">Invest</a></li>
+			<li><a href="/Default/invest">Investing</a></li>
 			<li><a href="/Default/index">Tips</a></li>
 			<li><a href="/Login/Logout">Logout</a></li>
 			</ul>
@@ -24,10 +24,10 @@
 			
 			$user = $model['User'];
 			
-			$name = $user->first_name . " " .$user->last_name;
-			echo "Hello $name";
+			// $name = $user->first_name . " " .$user->last_name;
+			// echo "Hello $name";
 			if(!$user->complete){
-				echo  "<h1><center>First Visit Questionnaire</center></h1>";
+				// echo  "<h1><center>First Visit Questionnaire</center></h1>";
 				echo "<form class='' action='/Default/complete' method='POST'>
 				<div class='form-group'>
 				<input type='text' style='display:none;' name='complete' id='complete' />
@@ -41,7 +41,7 @@
 				</form>";
 			} 
 			else if($user->complete == '1'){
-				echo  "<h1><center>First Visit Questionnaire</center></h1>";
+				// echo  "<h1><center>First Visit Questionnaire</center></h1>";
 				echo "<form action='/Default/complete' method='POST'>
 				<input type='text' style='display:none;' name='complete' id='complete' />
 				<div class = 'd-flex justify-content-center'>
@@ -49,13 +49,13 @@
 				</div>
 				<div class = 'd-flex justify-content-center'>		
 				<input style = 'width: 30%;' class='form-control form-control-lg' name = 'yearEarn' type='number' min = '0' id = 'yearEarn'> <br>
-				<input type='submit' value='submit' class='btn btn-black'>
+				<input type='submit' value='Next' class='btn btn-black'>
 				</div>
 				</form>";
 			}
 
 			else if($user->complete == '2'){
-				echo  "<h1><center>First Visit Questionnaire</center></h1>";
+				// echo  "<h1><center>First Visit Questionnaire</center></h1>";
 				echo "<form action='/Default/complete' method='POST'>
 				<input type='text' style='display:none;' name='complete' id='complete' />
 				<div class = 'd-flex justify-content-center'>
@@ -63,39 +63,51 @@
 				</div>
 				<div class = 'd-flex justify-content-center'>	
 				<input style = 'width: 30%;' class='form-control form-control-lg' name = 'monthExp' type='number' min = '0'  id = 'monthExp'> <br>
-				<input type='submit' value='submit' class='btn btn-black'>
+				<input type='submit' value='Next' class='btn btn-black'>
 				</div>
 				</form>";
 			}
 			else if($user->complete == '3'){
-				echo  "<h1><center>First Visit Questionnaire</center></h1>";
+				// echo  "<h1><center>First Visit Questionnaire</center></h1>";
 				echo "<form action='/Default/complete' method='POST'>
 				<input type='text' style='display:none;' name='complete' id='complete' />
-				<label for = 'housing'  id = 'housing'>How much do you spend on housing, if any? </label> <br>				
-				<input name = 'housing' class='form-control form-control-lg' type='number' min = '0'  id = 'housing' required> <br>
-				<input type='submit' value='submit'>
+				<div class = 'd-flex justify-content-center'>
+				<label style='font-size:2em;' for = 'housing'  id = 'housing'>How much do you spend on housing, if any? </label> <br>				
+				</div>
+				<div class = 'd-flex justify-content-center'>	
+				<input style = 'width: 30%;' class='form-control form-control-lg' name = 'housing' class='form-control form-control-lg' type='number' min = '0'  id = 'housing' required> <br>
+				<input type='submit' value='Next' class='btn btn-black'>
+				</div>
 				</form>";
 			}  
 			else if($user->complete == '4'){
-				echo  "<h1><center>First Visit Questionnaire</center></h1>";
+				// echo  "<h1><center>First Visit Questionnaire</center></h1>";
 				echo "<form action='/Default/complete' method='POST'>
 				<input type='text' style='display:none;' name='complete' id='complete' />
-				<label for = 'food'  id = 'food'>How much do you spend on food? </label> <br>				
-				<input name = 'food' class='form-control form-control-lg' type='number' min = '0'  id = 'food' required> <br>
-				<input type='submit' value='submit'>
+				<div class = 'd-flex justify-content-center'>
+				<label style='font-size:2em;' for = 'food'  id = 'food'>How much do you spend on food? </label> <br>	
+				</div>	
+				<div class = 'd-flex justify-content-center'>		
+				<input style = 'width: 30%;' class='form-control form-control-lg' name = 'food' class='form-control form-control-lg' type='number' min = '0'  id = 'food' required> <br>
+				<input type='submit' value='Next' class='btn btn-black'>
+				</div>
 				</form>";
 			}
 			else if($user->complete == '5'){
-				echo  "<h1><center>First Visit Questionnaire</center></h1>";
+				// echo  "<h1><center>First Visit Questionnaire</center></h1>";
 				echo "<form action='/Default/complete' method='POST'>
 				<input type='text' style='display:none;' name='complete' id='complete' />
-				<label for = 'misc'  id = 'misc'>How much do you spend on miscellaneous? </label> <br>				
-				<input name = 'misc' class='form-control form-control-lg' 	 type='number' min = '0'  id = 'misc' required> <br>
-				<input type='submit' value='submit'>
+				<div class = 'd-flex justify-content-center'>
+				<label style='font-size:2em;' for = 'misc'  id = 'misc'>How much do you spend on miscellaneous? </label> <br>				
+				</div>
+				<div class = 'd-flex justify-content-center'>	
+				<input style = 'width: 30%;' class='form-control form-control-lg' name = 'misc' class='form-control form-control-lg' 	 type='number' min = '0'  id = 'misc' required> <br>
+				<input type='submit' value='Next' class='btn btn-black'>
+				</div>
 				</form>";
 			
 			}else { //complete
-				echo  "<h1><center>Completed Questionnaire</center></h1>";
+				echo  "<h1><center>Your Portfolio</center></h1>";
 				echo "<canvas id='myChart' style='width:100%;max-width:600px'></canvas>";
 				echo "<script>
 					var xValues = ['Subscriptions', 'Housing', 'Food', 'Miscellaneous'];
@@ -130,17 +142,17 @@
 				$percentageSpent = ($totalExpenseYear) / ($yearEarned);
 				$diff = $yearEarned - $totalExpenseYear;
 				if($percentageSpent >= 0.70 && $diff <= 10000){
-					echo $percentageSpent . " " . $diff;
+					// echo $percentageSpent . " " . $diff;
 				}
-				echo $totalExpenseYear . " ";
-				echo $percentageSpent . " you have $" . $diff . " unspent over the span of a year" ;
-				
+				$percentage = round($percentageSpent * 100,2);
 					echo "<div class='wrap-circles'>
-					<div class='circle percent'>
-					  <div class='inner'>25%</div>
+					<div class='circle percent'  style='background-image: conic-gradient(#f01515 $percentage%, #08e65d 0);'>
+					  <div class='inner'>$percentage%</div>
 					</div>
 					</div>";
-				
+
+				echo "Recommendations: We firstly ";
+
 			}
 			?>
 	</div>

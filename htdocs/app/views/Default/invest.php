@@ -16,44 +16,58 @@
 			<?php
 			$user = $model['User'];
 			
-			$name = $user->first_name . " " .$user->last_name;
-			echo "Hello $name";
+			// $name = $user->first_name . " " .$user->last_name;
+			// echo "Hello $name";
 
                 
 			if(!$user->completeInv){ //0
-				echo  "<h1><center>Investment Questionnaire</center></h1>";
+				// echo  "<h1><center>Investment Questionnaire</center></h1>";
 				echo "<form class='' action='/Default/completeInv' method='POST'>
 				<input type='text' style='display:none;' name='completeInv' id='completeInv' />
+				<div class = 'd-flex justify-content-center'>
                 <h2>What is your goal?</h2>
-				<label for = 'long'>Short term growth
+				</div>
+				<span class='rounded border'>
+				<div class = 'd-flex justify-content-center'>
+				<label for = 'long' style='font-size:2em;'>Short term growth
 				<input name = 'goal' type='radio' id = 'short' value='short'> </label> 
+				</div>
                 <br>
-                <label for = 'long'>long term growth
-				<input name = 'goal' type='radio' id = 'long' value='long'> </label> 
+				<div class = 'd-flex justify-content-center'>
+                <label for = 'long' style='font-size:2em;'>long term growth
+				<input name = 'goal' type='radio' id = 'long' value='long'> </label>
+				</div> 
                 <br>
-                <label for = 'retire'>save for retirement
+				<div class = 'd-flex justify-content-center'>
+                <label for = 'retire' style='font-size:2em;'>save for retirement
 				<input name = 'goal' type='radio' id = 'retire' value='retire'> </label> 
+				</div>
                 <br>
-                <label for = 'house'>buy a house
+				<div class = 'd-flex justify-content-center'>
+                <label for = 'house' style='font-size:2em;'>buy a house
 				<input name = 'goal' type='radio' id = 'house' value='house'> </label> 
+				</div>
                 <br>
-				<input type='submit' value='submit'>
+				</span>
+				<div class = 'd-flex justify-content-center'>
+				<input type='submit' value='Next'>
+				</div>
 				</form>";
 			} 
 			else if($user->completeInv == '1'){ //period
 				echo "<form class='' action='/Default/completeInv' method='POST'>
 				<input type='text' style='display:none;' name='completeInv' id='completeInv' />
                 <h2>When would you like to reach your goal?</h2>
-				<label for = '5'>within 5 years
+				<label for = '5' style='font-size:2em;'>within 5 years
 				<input name = 'period' type='radio' id = '5' value='5'> </label> 
                 <br>
-                <label for = '10'>within 10 years
+                <label for = '10' style='font-size:2em;'>within 10 years
 				<input name = 'period' type='radio' id = '10' value='10'> </label> 
                 <br>
-                <label for = '15'>within 15 years
+                <label for = '15' style='font-size:2em;'>within 15 years
 				<input name = 'period' type='radio' id = '15' value='15'> </label> 
                 <br>
-                <label for = '20+'>after 20+ years
+                <label for = '20+' style='font-size:2em;'>after 20+ years
 				<input name = 'period' type='radio' id = '20+' value='20+'> </label> 
                 <br>
 				<input type='submit' value='submit'>
