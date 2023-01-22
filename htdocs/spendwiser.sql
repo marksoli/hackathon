@@ -19,9 +19,11 @@ CREATE TABLE `users` (
   `housing` int(11),
   `food` int(11),
   `misc` int(11),
-  `saving` int(11),
-  `invest` int(11),
-  `debt` int(11)
+  `completeInv` tinyint(1) DEFAULT '0',
+  `goal` varchar(72),
+  `period` varchar(72),
+  `types` varchar(72),
+  `invested` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 

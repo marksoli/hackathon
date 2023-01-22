@@ -28,8 +28,8 @@ td.ha
 .loginContainer {
   padding: 15px;
   margin-top: 65px;
-  margin-right: 350px;
-  margin-left: 350px;
+  margin-right: auto;
+  margin-left: auto;
   border-style: groove;
   border-color: black;
   background-color: #1affd1;

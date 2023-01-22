@@ -12,8 +12,12 @@ class User extends Model{
     public $housing;
     public $food;
     public $misc;
-    public $saving;
     public $invest;
+    public $completeInv;
+    public $goal;
+    public $period;
+    public $types;
+    public $invested;
 
     public function __construct()
     {   
@@ -98,27 +102,40 @@ class User extends Model{
                         'misc'=>$misc]);        
     }
 
-    public function setSaving($saving){
-        $stmt = self::$_connection->prepare("UPDATE users SET saving = :saving WHERE user_id = :user_id");
-        $stmt->execute(['user_id'=>$this->user_id,
-                        'saving'=>$saving]);        
-    }
-
-    public function setInvest($invest){
-        $stmt = self::$_connection->prepare("UPDATE users SET invest = :invest WHERE user_id = :user_id");
-        $stmt->execute(['user_id'=>$this->user_id,
-                        'invest'=>$invest]);        
-    }
-
-    public function setDebt($debt){
-        $stmt = self::$_connection->prepare("UPDATE users SET debt = :debt WHERE user_id = :user_id");
-        $stmt->execute(['user_id'=>$this->user_id,
-                        'debt'=>$debt]);        
-    }
-
     public function setComplete($val){
         $val++;
         $stmt = self::$_connection->prepare("UPDATE users SET complete = :val WHERE user_id = :user_id");
+        $stmt->execute(['user_id'=>$this->user_id,
+                        'val'=>$val]);        
+    }
+
+    public function setGoal($goal){
+        $stmt = self::$_connection->prepare("UPDATE users SET goal = :goal WHERE user_id = :user_id");
+        $stmt->execute(['user_id'=>$this->user_id,
+                        'goal'=>$goal]);        
+    }
+
+    public function setPeriod($period){
+        $stmt = self::$_connection->prepare("UPDATE users SET period = :period WHERE user_id = :user_id");
+        $stmt->execute(['user_id'=>$this->user_id,
+                        'period'=>$period]);        
+    }
+
+    public function setTypes($types){
+        $stmt = self::$_connection->prepare("UPDATE users SET types = :types WHERE user_id = :user_id");
+        $stmt->execute(['user_id'=>$this->user_id,
+                        'types'=>$types]);        
+    }
+
+    public function setInvested($invested){
+        $stmt = self::$_connection->prepare("UPDATE users SET invested = :invested WHERE user_id = :user_id");
+        $stmt->execute(['user_id'=>$this->user_id,
+                        'invested'=>$invested]);        
+    }
+
+    public function setCompleteInv($val){
+        $val++;
+        $stmt = self::$_connection->prepare("UPDATE users SET completeInv = :val WHERE user_id = :user_id");
         $stmt->execute(['user_id'=>$this->user_id,
                         'val'=>$val]);        
     }
