@@ -18,6 +18,15 @@ class DefaultController extends Controller{
 		$this->view('Default/investmentPage', ['User'=>$user]);
 	}
 
+	public function tips(){
+
+		if( !isset($_SESSION['user_id']) ){
+			return header('location:/Login/index');
+		}
+		$user = $this->model('User')->findId($_SESSION['user_id']);
+		$this->view('Default/tips', ['User'=>$user]);
+	}
+
 	public function complete(){
 		if( !isset($_SESSION['user_id']) ){
 			return header('location:/Login/index');

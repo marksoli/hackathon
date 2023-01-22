@@ -13,7 +13,7 @@
 			<ul>
 			<li><a href="/Default/index">Spendwiser</a></li>
 			<li><a href="/Default/invest">Investing</a></li>
-			<li><a href="/Default/index">Tips</a></li>
+			<li><a href="/Default/tips">Tips</a></li>
 			<li><a href="/Login/Logout">Logout</a></li>
 			</ul>
 			<?php

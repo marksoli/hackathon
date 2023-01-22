@@ -11,7 +11,12 @@
 	<div class="container-fluid" style="padding:0;">
 			<ul>
 			<li><a href="/Default/index">Spendwiser</a></li>
+<<<<<<< Updated upstream
 			<li><a href="/Default/Tips">Tips</a></li>
+=======
+			<li><a href="/Default/invest">Investing</a></li>
+			<li><a href="/Default/tips">Tips</a></li>
+>>>>>>> Stashed changes
 			<li><a href="/Login/Logout">Logout</a></li>
 			</ul>
 			<?php

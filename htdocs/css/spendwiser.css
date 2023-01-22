@@ -10,6 +10,9 @@ option{
 	border-radius: 10px;
 }
 
+.no-bullets{
+  list-style-type: none;
+}
 
 td.ha
 {
