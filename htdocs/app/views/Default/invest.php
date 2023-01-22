@@ -108,7 +108,23 @@
 				</form>";
 			}else { //complete
 
-				echo  "<h1><center>Completed Investment Analysis</center></h1>";
+				echo  "<h1 style = 'text-decoration:underline' id = 'investmentLevel'><center>Low-Risk Investment</center></h1><br>
+				<h3 id = 'InvestmentDesc'><center>Low-risk investments are those that have a lower chance of losing value and tend to provide more stable and consistent returns. These types of investments typically include bonds, Certificates of Deposit (CDs) and Treasury Inflation-Protected Securities (TIPS). </center></h3> <br>
+				
+	
+				<div class='container'>
+					<div class='row'>
+						<div class='col' id='investment1'>
+							<h4> Bonds: Bonds are debt securities issued by companies or government entities. They provide a fixed stream of income in the form of interest payments and are generally considered less risky than stocks. </h4>
+						</div>
+						<div class='col' id='investment2'>
+							<h4> Certificates of Deposit (CDs): CDs are bank-issued deposit accounts that offer a fixed rate of return for a specified period. They are considered low-risk because the return is guaranteed by the bank and the deposits are insured by the FDIC. </h4>
+						</div>
+						<div class='col' id='investment3'>
+							<h4 > Treasury Inflation-Protected Securities (TIPS): These are US government bonds that are indexed to inflation, protecting the purchasing power of the investor. </h4>
+						</div>
+					</div>
+				</div>";
 			}
 			?>
 			<?php

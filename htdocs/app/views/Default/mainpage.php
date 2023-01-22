@@ -13,6 +13,7 @@
 			<ul>
 			<li><a href="/Default/index">Spendwiser</a></li>
 			<li><a href="/Default/invest">Invest</a></li>
+			<li><a href="/Default/index">Tips</a></li>
 			<li><a href="/Login/Logout">Logout</a></li>
 			</ul>
 			<?php
@@ -30,9 +31,12 @@
 				echo "<form class='' action='/Default/complete' method='POST'>
 				<div class='form-group'>
 				<input type='text' style='display:none;' name='complete' id='complete' />
-				<label for = 'age'  id = 'age'>What is your age?</label> <br>				
-				<input name = 'age' class='form-control' type='number' min = '0' max='100' id = 'age' required> <br>
-				<input type='submit' value='Next Question'>
+				<div class = 'd-flex justify-content-center'>
+				<label  style='font-size:2em;' for = 'age'  id = 'age'>What is your age?</label> <br>
+				</div>
+				<div class = 'd-flex justify-content-center'>				
+				<input style = 'width: 30%;'class='form-control form-control-lg' name = 'age' type='number' min = '0' max='100' id = 'age'> <br>
+				<button type='submit' name='action' value='submit' class='btn btn-black'>Next</button>
 				</div>
 				</form>";
 			} 
@@ -40,9 +44,13 @@
 				echo  "<h1><center>First Visit Questionnaire</center></h1>";
 				echo "<form action='/Default/complete' method='POST'>
 				<input type='text' style='display:none;' name='complete' id='complete' />
-				<label for = 'yearEarn'  id = 'yearEarn'>Yearly Earnings</label> <br>				
-				<input name = 'yearEarn' class='form-control form-control-lg' type='number' min = '0' id = 'yearEarn' required> <br>
-				<input type='submit' value='submit'>
+				<div class = 'd-flex justify-content-center'>
+				<label style='font-size:2em;' for = 'yearEarn'  id = 'yearEarn'>Yearly Earnings</label> <br>		
+				</div>
+				<div class = 'd-flex justify-content-center'>		
+				<input style = 'width: 30%;' class='form-control form-control-lg' name = 'yearEarn' type='number' min = '0' id = 'yearEarn'> <br>
+				<input type='submit' value='submit' class='btn btn-black'>
+				</div>
 				</form>";
 			}
 
@@ -50,9 +58,13 @@
 				echo  "<h1><center>First Visit Questionnaire</center></h1>";
 				echo "<form action='/Default/complete' method='POST'>
 				<input type='text' style='display:none;' name='complete' id='complete' />
-				<label for = 'monthExp'  id = 'monthExp'>Current Monthly expenditure on Subscriptions</label> <br>				
-				<input name = 'monthExp' class='form-control form-control-lg' type='number' min = '0'  id = 'monthExp' required> <br>
-				<input type='submit' value='submit'>
+				<div class = 'd-flex justify-content-center'>
+				<label style='font-size:2em;' for = 'monthExp'  id = 'monthExp'>Current Monthly expenditure on Subscriptions</label> <br>				
+				</div>
+				<div class = 'd-flex justify-content-center'>	
+				<input style = 'width: 30%;' class='form-control form-control-lg' name = 'monthExp' type='number' min = '0'  id = 'monthExp'> <br>
+				<input type='submit' value='submit' class='btn btn-black'>
+				</div>
 				</form>";
 			}
 			else if($user->complete == '3'){
@@ -81,42 +93,7 @@
 				<input name = 'misc' class='form-control form-control-lg' 	 type='number' min = '0'  id = 'misc' required> <br>
 				<input type='submit' value='submit'>
 				</form>";
-			// }
-			// else if($user->complete == '6'){
-			// 	echo  "<h1><center>First Visit Questionnaire</center></h1>";
-			// 	echo "<form action='/Default/complete' method='POST'>
-			// 	<input type='text' style='display:none;' name='complete' id='complete' />
-
-			// 	<label for = 'saving'  id = 'saving'>How much are you saving, if any? </label> <br>				
-			// 	<input name = 'saving' type='number' min = '0'  id = 'saving' required> <br>
-
-
-			// 	<input type='submit' value='submit'>
-			// 	</form>";
-			// }
-			// else if($user->complete == '7'){
-			// 	echo  "<h1><center>First Visit Questionnaire</center></h1>";
-			// 	echo "<form action='/Default/complete' method='POST'>
-			// 	<input type='text' style='display:none;' name='complete' id='complete' />
-
-			// 	<label for = 'invest'  id = 'invest'>How much are you investing, if any? </label> <br>				
-			// 	<input name = 'invest' type='number' min = '0'  id = 'invest' required> <br>
-
-
-			// 	<input type='submit' value='submit'>
-			// 	</form>";
-			// }
-			// else if($user->complete == '6'){ 
-			// 	echo  "<h1><center>First Visit Questionnaire</center></h1>";
-			// 	echo "<form action='/Default/complete' method='POST'>
-			// 	<input type='text' style='display:none;' name='complete' id='complete' />
-
-			// 	<label for = 'debt'  id = 'debt'>What is your current debt? </label> <br>				
-			// 	<input name = 'debt' type='number' min = '0'  id = 'debt' required> <br>
-
-
-			// 	<input type='submit' value='submit'>
-			// 	</form>";
+			
 			}else { //complete
 				echo  "<h1><center>Completed Questionnaire</center></h1>";
 				echo "<canvas id='myChart' style='width:100%;max-width:600px'></canvas>";
@@ -142,12 +119,11 @@
 					options: {
 						title: {
 						display: true,
-						text: 'Monthly spending visualized'
+						text: 'Monthly spending visualized',
 						}
 					}
 					});
 					</script>";
-
 				$totalExpenseMonth = $user->monthExp + $user->housing + $user->food + $user->misc;
 				$totalExpenseYear = ($totalExpenseMonth*12);
 				$yearEarned = $user->yearEarn;
@@ -159,36 +135,13 @@
 				echo $totalExpenseYear . " ";
 				echo $percentageSpent . " you have $" . $diff . " unspent over the span of a year" ;
 				
+					echo "<div class='wrap-circles'>
+					<div class='circle percent'>
+					  <div class='inner'>25%</div>
+					</div>
+					</div>";
 				
 			}
-			?>
-			<?php
-				// $subforums = $model['subforums'];
-				// foreach($subforums as $s)
-
-				// {
-				// 	$subforumCreator = $this->model('Subforums')->find($s->subforum_id);
-
-				// 	$subforumFollows = $model['subFollowers']->getSubFollower($_SESSION['user_id'], $s->subforum_id);
-
-				// 	echo "<tr>";
-				// 	echo "<td class = 'ha'><b>$s->subforum_name</td>";
-				// 	echo "<td >$s->subforum_desc</td>";
-				// 	echo "<td >".$s->username."</td>";
-				// 	echo "<td ><a href= '/Subforum/displaySubforums/$s->subforum_id'>View this subforum</a></td>";
-				// 	if($subforumFollows != null)
-				// 	{
-				// 		echo "<td ><a href= '/Follower/removeASubFollower/$s->subforum_id'>Unfollow</a></td>";
-				// 	}
-				// 	else
-				// 	{
-				// 		echo "<td ><a href= '/Follower/addASubFollower/$s->subforum_id'>Follow this subforum</a></td>";
-				// 	}
-				// 	echo "</tr>";
-
-				// }
-				// echo "</table>";
-				// echo"</div>";
 			?>
 	</div>
 </body>
