@@ -11,20 +11,12 @@
 	<div class="container-fluid" style="padding:0;">
 			<ul>
 			<li><a href="/Default/index">Spendwiser</a></li>
-<<<<<<< Updated upstream
-			<li><a href="/Default/Tips">Tips</a></li>
-=======
 			<li><a href="/Default/invest">Investing</a></li>
 			<li><a href="/Default/tips">Tips</a></li>
->>>>>>> Stashed changes
 			<li><a href="/Login/Logout">Logout</a></li>
 			</ul>
 			<?php
 			$user = $model['User'];
-			
-			// $name = $user->first_name . " " .$user->last_name;
-			// echo "Hello $name";
-
                 
 			if(!$user->completeInv){ //0
 				// echo  "<h1><center>Investment Questionnaire</center></h1>";
@@ -63,68 +55,110 @@
 			else if($user->completeInv == '1'){ //period
 				echo "<form class='' action='/Default/completeInv' method='POST'>
 				<input type='text' style='display:none;' name='completeInv' id='completeInv' />
+				<div class = 'd-flex justify-content-center'>
                 <h2>When would you like to reach your goal?</h2>
+				</div>
+				<div class = 'd-flex justify-content-center'>
 				<label for = '5' style='font-size:2em;'>Within 5 years
 				<input style='transform: scale(2);' name = 'period' type='radio' id = '5' value='5'> </label> 
+				</div>
                 <br>
+				<div class = 'd-flex justify-content-center'>
                 <label for = '10' style='font-size:2em;'>Within 10 years
 				<input style='transform: scale(2);' name = 'period' type='radio' id = '10' value='10'> </label> 
+				</div>
                 <br>
+				<div class = 'd-flex justify-content-center'>
                 <label for = '15' style='font-size:2em;'>Within 15 years
 				<input style='transform: scale(2);' name = 'period' type='radio' id = '15' value='15'> </label> 
+				</div>
                 <br>
+				<div class = 'd-flex justify-content-center'>
                 <label for = '20+' style='font-size:2em;'>After 20+ years
 				<input style='transform: scale(2);' name = 'period' type='radio' id = '20+' value='20+'> </label> 
+				</div>
                 <br>
-				<input type='submit' value='Next'>
+				<div class = 'd-flex justify-content-center'>
+				<input type='submit' value='Next' required>
+				</div>
 				</form>";
 			}
 
 			else if($user->completeInv == '2'){ //types
 				echo "<form class='' action='/Default/completeInv' method='POST'>
 				<input type='text' style='display:none;' name='completeInv' id='completeInv' />
+				<div class = 'd-flex justify-content-center'>
                 <h2>Select all that you are currently invested in:</h2>
+				</div>
+				<div class = 'd-flex justify-content-center'>
 				<label for = 'stock'>Individual stocks
 				<input style='transform: scale(2);' name = 'type1' type='radio' id = 'stock' value='stock'> </label> 
+				<div>
                 <br>
+				<div class = 'd-flex justify-content-center'>
                 <label for = 'crypto'>Crypto
 				<input style='transform: scale(2);' name = 'type2' type='radio' id = 'crypto' value='crypto'> </label> 
+				</div>
                 <br>
+				<div class = 'd-flex justify-content-center'>
                 <label for = 'bonds'>Bonds
 				<input style='transform: scale(2);' name = 'type3' type='radio' id = 'bonds' value='bonds'> </label> 
+				</div>
                 <br>
+				<div class = 'd-flex justify-content-center'>
                 <label for = 'restate'>Real estate
-				<input style='transform: scale(2);' name = 'type4' type='radio' id = 'restate' value='restate'> </label> 
+				<input style='transform: scale(2);' name = 'type4' type='radio' id = 'restate' value='restate'> </label>
+				</div> 
                 <br>
+				<div class = 'd-flex justify-content-center'>
                 <label for = 'etf'>ETFs / Index funds
 				<input style='transform: scale(2);' name = 'type5' type='radio' id = 'etf' value='etf'> </label> 
+				</div>
                 <br>
+				<div class = 'd-flex justify-content-center'>
                 <label for = 'none'>None of the above
 				<input style='transform: scale(2);' name = 'type6' type='radio' id = 'none' value='none'> </label> 
+				</div>
                 <br>
-				<input type='submit' value='Next'>
+				<div class = 'd-flex justify-content-center'>
+				<input type='submit' value='Next' required>
+				</div>
 				</form>";
 			}
 			else if($user->completeInv == '3'){//invested
 				echo "<form class='' action='/Default/completeInv' method='POST'>
 				<input type='text' style='display:none;' name='completeInv' id='completeInv' />
+				<div class = 'd-flex justify-content-center'>
                 <h2>How much money do you currently have invested?</h2>
+				</div>
+				<div class = 'd-flex justify-content-center'>
 				<label for = '010'>$0 - $10,000
 				<input style='transform: scale(2);' name = 'invested' type='radio' id = '010' value='010'> </label> 
+				</div>
                 <br>
+				<div class = 'd-flex justify-content-center'>
                 <label for = '1030'>$10,000 - $30,000
 				<input style='transform: scale(2);' name = 'invested' type='radio' id = '1030' value='1030'> </label> 
+				</div>
                 <br>
+				<div class = 'd-flex justify-content-center'>
                 <label for = '3050'>$30,000 - $50,000
 				<input style='transform: scale(2);' name = 'invested' type='radio' id = '3050' value='3050'> </label> 
+				</div>
                 <br>
+				<div class = 'd-flex justify-content-center'>
                 <label for = '50100'>$50,000 - $100,000
 				<input style='transform: scale(2);' name = 'invested' type='radio' id = '50100' value='50100'> </label> 
+				</div>
                 <br>
+				<div class = 'd-flex justify-content-center'>
                 <label for = '100'>$100,000+
-				<input style='transform: scale(2);' name = 'invested' type='radio' id = '100' value='100'> </label> 
+				<input style='transform: scale(2);' name = 'invested' type='radio' id = '100' value='100'> </label>
+				</div> 
                 <br>
+				<div class = 'd-flex justify-content-center'>
 				<input type='submit' value='submit'>
+				</div>
 				</form>";
 			}else { //complete
 				$risk=rand(0,2);
