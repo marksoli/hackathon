@@ -56,7 +56,6 @@ class DefaultController extends Controller{
 				$misc = $_POST['misc']; 
 				$user->setMisc($misc);
 			}
-
 			$userNew = $this->model('User')->findId($_SESSION['user_id']);
 			return $this->view('Default/mainpage', ['User'=>$userNew]);
 		}

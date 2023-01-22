@@ -11,6 +11,7 @@
 	<div class="container-fluid" style="padding:0;">
 			<ul>
 			<li><a href="/Default/index">Spendwiser</a></li>
+			<li><a href="/Default/Tips">Tips</a></li>
 			<li><a href="/Login/Logout">Logout</a></li>
 			</ul>
 			<?php
@@ -30,22 +31,22 @@
 				<span class='rounded border'>
 				<div class = 'd-flex justify-content-center'>
 				<label for = 'long' style='font-size:2em;'>Short term growth
-				<input name = 'goal' type='radio' id = 'short' value='short'> </label> 
+				<input style='transform: scale(2);' name = 'goal' type='radio' id = 'short' value='short'> </label> 
 				</div>
                 <br>
 				<div class = 'd-flex justify-content-center'>
-                <label for = 'long' style='font-size:2em;'>long term growth
-				<input name = 'goal' type='radio' id = 'long' value='long'> </label>
+                <label for = 'long' style='font-size:2em;'>Long term growth
+				<input style='transform: scale(2);' name = 'goal' type='radio' id = 'long' value='long'> </label>
 				</div> 
                 <br>
 				<div class = 'd-flex justify-content-center'>
-                <label for = 'retire' style='font-size:2em;'>save for retirement
-				<input name = 'goal' type='radio' id = 'retire' value='retire'> </label> 
+                <label for = 'retire' style='font-size:2em;'>Save for retirement
+				<input style='transform: scale(2);' name = 'goal' type='radio' id = 'retire' value='retire'> </label> 
 				</div>
                 <br>
 				<div class = 'd-flex justify-content-center'>
-                <label for = 'house' style='font-size:2em;'>buy a house
-				<input name = 'goal' type='radio' id = 'house' value='house'> </label> 
+                <label for = 'house' style='font-size:2em;'>Buy a house
+				<input style='transform: scale(2);' name = 'goal' type='radio' id = 'house' value='house'> </label> 
 				</div>
                 <br>
 				</span>
@@ -58,19 +59,19 @@
 				echo "<form class='' action='/Default/completeInv' method='POST'>
 				<input type='text' style='display:none;' name='completeInv' id='completeInv' />
                 <h2>When would you like to reach your goal?</h2>
-				<label for = '5' style='font-size:2em;'>within 5 years
-				<input name = 'period' type='radio' id = '5' value='5'> </label> 
+				<label for = '5' style='font-size:2em;'>Within 5 years
+				<input style='transform: scale(2);' name = 'period' type='radio' id = '5' value='5'> </label> 
                 <br>
-                <label for = '10' style='font-size:2em;'>within 10 years
-				<input name = 'period' type='radio' id = '10' value='10'> </label> 
+                <label for = '10' style='font-size:2em;'>Within 10 years
+				<input style='transform: scale(2);' name = 'period' type='radio' id = '10' value='10'> </label> 
                 <br>
-                <label for = '15' style='font-size:2em;'>within 15 years
-				<input name = 'period' type='radio' id = '15' value='15'> </label> 
+                <label for = '15' style='font-size:2em;'>Within 15 years
+				<input style='transform: scale(2);' name = 'period' type='radio' id = '15' value='15'> </label> 
                 <br>
-                <label for = '20+' style='font-size:2em;'>after 20+ years
-				<input name = 'period' type='radio' id = '20+' value='20+'> </label> 
+                <label for = '20+' style='font-size:2em;'>After 20+ years
+				<input style='transform: scale(2);' name = 'period' type='radio' id = '20+' value='20+'> </label> 
                 <br>
-				<input type='submit' value='submit'>
+				<input type='submit' value='Next'>
 				</form>";
 			}
 
@@ -79,66 +80,102 @@
 				<input type='text' style='display:none;' name='completeInv' id='completeInv' />
                 <h2>Select all that you are currently invested in:</h2>
 				<label for = 'stock'>Individual stocks
-				<input name = 'type1' type='radio' id = 'stock' value='stock'> </label> 
+				<input style='transform: scale(2);' name = 'type1' type='radio' id = 'stock' value='stock'> </label> 
                 <br>
-                <label for = 'crypto'>crypto
-				<input name = 'type2' type='radio' id = 'crypto' value='crypto'> </label> 
+                <label for = 'crypto'>Crypto
+				<input style='transform: scale(2);' name = 'type2' type='radio' id = 'crypto' value='crypto'> </label> 
                 <br>
-                <label for = 'bonds'>bonds
-				<input name = 'type3' type='radio' id = 'bonds' value='bonds'> </label> 
+                <label for = 'bonds'>Bonds
+				<input style='transform: scale(2);' name = 'type3' type='radio' id = 'bonds' value='bonds'> </label> 
                 <br>
-                <label for = 'restate'>real estate
-				<input name = 'type4' type='radio' id = 'restate' value='restate'> </label> 
+                <label for = 'restate'>Real estate
+				<input style='transform: scale(2);' name = 'type4' type='radio' id = 'restate' value='restate'> </label> 
                 <br>
-                <label for = 'etf'>ETFs / Index Funds
-				<input name = 'type5' type='radio' id = 'etf' value='etf'> </label> 
+                <label for = 'etf'>ETFs / Index funds
+				<input style='transform: scale(2);' name = 'type5' type='radio' id = 'etf' value='etf'> </label> 
                 <br>
-                <label for = 'none'>none of the above
-				<input name = 'type6' type='radio' id = 'none' value='none'> </label> 
+                <label for = 'none'>None of the above
+				<input style='transform: scale(2);' name = 'type6' type='radio' id = 'none' value='none'> </label> 
                 <br>
-				<input type='submit' value='submit'>
+				<input type='submit' value='Next'>
 				</form>";
 			}
 			else if($user->completeInv == '3'){//invested
 				echo "<form class='' action='/Default/completeInv' method='POST'>
 				<input type='text' style='display:none;' name='completeInv' id='completeInv' />
                 <h2>How much money do you currently have invested?</h2>
-				<label for = '010'>0-10,000
-				<input name = 'invested' type='radio' id = '010' value='010'> </label> 
+				<label for = '010'>$0 - $10,000
+				<input style='transform: scale(2);' name = 'invested' type='radio' id = '010' value='010'> </label> 
                 <br>
-                <label for = '1030'>10,000 - 30,000
-				<input name = 'invested' type='radio' id = '1030' value='1030'> </label> 
+                <label for = '1030'>$10,000 - $30,000
+				<input style='transform: scale(2);' name = 'invested' type='radio' id = '1030' value='1030'> </label> 
                 <br>
-                <label for = '3050'>30,000 - 50,000
-				<input name = 'invested' type='radio' id = '3050' value='3050'> </label> 
+                <label for = '3050'>$30,000 - $50,000
+				<input style='transform: scale(2);' name = 'invested' type='radio' id = '3050' value='3050'> </label> 
                 <br>
-                <label for = '50100'>50,000 - 100,000
-				<input name = 'invested' type='radio' id = '50100' value='50100'> </label> 
+                <label for = '50100'>$50,000 - $100,000
+				<input style='transform: scale(2);' name = 'invested' type='radio' id = '50100' value='50100'> </label> 
                 <br>
-                <label for = '100'>100,000+
-				<input name = 'invested' type='radio' id = '100' value='100'> </label> 
+                <label for = '100'>$100,000+
+				<input style='transform: scale(2);' name = 'invested' type='radio' id = '100' value='100'> </label> 
                 <br>
 				<input type='submit' value='submit'>
 				</form>";
 			}else { //complete
-
-				echo  "<h1 style = 'text-decoration:underline' id = 'investmentLevel'><center>Low-Risk Investment</center></h1><br>
-				<h3 id = 'InvestmentDesc'><center>Low-risk investments are those that have a lower chance of losing value and tend to provide more stable and consistent returns. These types of investments typically include bonds, Certificates of Deposit (CDs) and Treasury Inflation-Protected Securities (TIPS). </center></h3> <br>
+				$risk=rand(0,2);
+				switch($risk){
+					case 0: 
+						echo  "<h1 style = 'text-decoration:underline' id = 'investmentLevel'><center>Low-Risk Investment</center></h1><br>
+						<h3 id = 'InvestmentDesc'><center>Low-risk investments are those that have a lower chance of losing value and tend to provide more stable and consistent returns. These types of investments typically include bonds, Certificates of Deposit (CDs) and Treasury Inflation-Protected Securities (TIPS). </center></h3> <br>
+						
+			
+						<div class='container'>
+							<div class='row'>
+								<div class='col' id='investment1'>
+									<h4> Bonds: Bonds are debt securities issued by companies or government entities. They provide a fixed stream of income in the form of interest payments and are generally considered less risky than stocks. </h4>
+								</div>
+								<div class='col' id='investment2'>
+									<h4> Certificates of Deposit (CDs): CDs are bank-issued deposit accounts that offer a fixed rate of return for a specified period. They are considered low-risk because the return is guaranteed by the bank and the deposits are insured by the FDIC. </h4>
+								</div>
+								<div class='col' id='investment3'>
+									<h4 > Treasury Inflation-Protected Securities (TIPS): These are US government bonds that are indexed to inflation, protecting the purchasing power of the investor. </h4>
+								</div>
+							</div>
+						</div>";
+						break;
+					case 1: 
+						echo  "<h1 style = 'text-decoration:underline' id = 'investmentLevel'><center>Moderate-Risk Investment</center></h1><br>
+						<h3 id = 'InvestmentDesc'><center>Moderate-risk investments are those that have a higher chance of losing value than low-risk investments, but also have a higher potential for returns. These types of investments typically include balanced funds, Real Estate Investment Trusts (REITs), and some types of mutual funds.</center></h3> <br>
+						<div class='container'>
+							<div class='row'>
+								<div class='col' id='investment1'>
+									<h4> Balanced Funds: A balanced fund is a type of mutual fund that invests in both stocks and bonds, aiming to provide a balance of growth and income.</h4>
+								</div>
+								<div class='col' id='investment2'>
+									<h4> Real Estate Investment Trusts (REITs): REITs are companies that own and operate income-producing real estate properties, such as shopping centers and apartment buildings. They are considered moderate-risk investments because they are affected by changes in the real estate market.</h4>
+								</div>
+							</div>
+						</div>";
+						break;
+					case 2:
+						echo  "<h1 style = 'text-decoration:underline' id = 'investmentLevel'><center>High-Risk Investment</center></h1><br>
+						<h3 id = 'InvestmentDesc'><center>High-risk investments are those that have a higher chance of losing value than moderate-risk investments and a higher potential for returns. These types of investments typically include individual stocks, cryptocurrency, and start-ups.</center></h3> <br>
+						<div class='container'>
+							<div class='row'>
+								<div class='col' id='investment1'>
+									<h4>Individual Stocks: Investing in individual stocks can provide the potential for high returns, but also carries a high level of risk.</h4>
+								</div>
+								<div class='col' id='investment2'>
+									<h4>Cryptocurrency: Investing in digital currencies like Bitcoin, Ethereum, and Litecoin has the potential for high returns but also comes with high volatility and risk. </h4>
+								</div>
+								<div class='col' id='investment3'>
+									<h4 > Start-ups: Investing in a start-up can provide the opportunity for high returns but also carries a high level of risk. </h4>
+								</div>
+							</div>
+						</div>";
+						break;
+				}
 				
-	
-				<div class='container'>
-					<div class='row'>
-						<div class='col' id='investment1'>
-							<h4> Bonds: Bonds are debt securities issued by companies or government entities. They provide a fixed stream of income in the form of interest payments and are generally considered less risky than stocks. </h4>
-						</div>
-						<div class='col' id='investment2'>
-							<h4> Certificates of Deposit (CDs): CDs are bank-issued deposit accounts that offer a fixed rate of return for a specified period. They are considered low-risk because the return is guaranteed by the bank and the deposits are insured by the FDIC. </h4>
-						</div>
-						<div class='col' id='investment3'>
-							<h4 > Treasury Inflation-Protected Securities (TIPS): These are US government bonds that are indexed to inflation, protecting the purchasing power of the investor. </h4>
-						</div>
-					</div>
-				</div>";
 			}
 			?>
 			<?php

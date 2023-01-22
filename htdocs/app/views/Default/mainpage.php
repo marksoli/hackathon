@@ -35,7 +35,7 @@
 				<label  style='font-size:2em;' for = 'age'  id = 'age'>What is your age?</label> <br>
 				</div>
 				<div class = 'd-flex justify-content-center'>				
-				<input style = 'width: 30%;'class='form-control form-control-lg' name = 'age' type='number' min = '0' max='100' id = 'age'> <br>
+				<input style = 'width: 30%;'class='form-control form-control-lg' name = 'age' type='number' min = '0' max='100' id = 'age' required> <br>
 				<button type='submit' name='action' value='submit' class='btn btn-black'>Next</button>
 				</div>
 				</form>";
@@ -48,7 +48,7 @@
 				<label style='font-size:2em;' for = 'yearEarn'  id = 'yearEarn'>Yearly Earnings</label> <br>		
 				</div>
 				<div class = 'd-flex justify-content-center'>		
-				<input style = 'width: 30%;' class='form-control form-control-lg' name = 'yearEarn' type='number' min = '0' id = 'yearEarn'> <br>
+				<input style = 'width: 30%;' class='form-control form-control-lg' name = 'yearEarn' type='number' min = '0' id = 'yearEarn' required> <br>
 				<input type='submit' value='Next' class='btn btn-black'>
 				</div>
 				</form>";
@@ -59,10 +59,10 @@
 				echo "<form action='/Default/complete' method='POST'>
 				<input type='text' style='display:none;' name='complete' id='complete' />
 				<div class = 'd-flex justify-content-center'>
-				<label style='font-size:2em;' for = 'monthExp'  id = 'monthExp'>Current Monthly expenditure on Subscriptions</label> <br>				
+				<label style='font-size:2em;' for = 'monthExp'  id = 'monthExp'>Monthly subscriptions cons</label> <br>				
 				</div>
 				<div class = 'd-flex justify-content-center'>	
-				<input style = 'width: 30%;' class='form-control form-control-lg' name = 'monthExp' type='number' min = '0'  id = 'monthExp'> <br>
+				<input style = 'width: 30%;' class='form-control form-control-lg' name = 'monthExp' type='number' min = '0'  id = 'monthExp' required> <br>
 				<input type='submit' value='Next' class='btn btn-black'>
 				</div>
 				</form>";
@@ -72,7 +72,7 @@
 				echo "<form action='/Default/complete' method='POST'>
 				<input type='text' style='display:none;' name='complete' id='complete' />
 				<div class = 'd-flex justify-content-center'>
-				<label style='font-size:2em;' for = 'housing'  id = 'housing'>How much do you spend on housing, if any? </label> <br>				
+				<label style='font-size:2em;' for = 'housing'  id = 'housing'>Monthly cost of housing</label> <br>				
 				</div>
 				<div class = 'd-flex justify-content-center'>	
 				<input style = 'width: 30%;' class='form-control form-control-lg' name = 'housing' class='form-control form-control-lg' type='number' min = '0'  id = 'housing' required> <br>
@@ -85,7 +85,7 @@
 				echo "<form action='/Default/complete' method='POST'>
 				<input type='text' style='display:none;' name='complete' id='complete' />
 				<div class = 'd-flex justify-content-center'>
-				<label style='font-size:2em;' for = 'food'  id = 'food'>How much do you spend on food? </label> <br>	
+				<label style='font-size:2em;' for = 'food'  id = 'food'>Monthly food costs</label> <br>	
 				</div>	
 				<div class = 'd-flex justify-content-center'>		
 				<input style = 'width: 30%;' class='form-control form-control-lg' name = 'food' class='form-control form-control-lg' type='number' min = '0'  id = 'food' required> <br>
@@ -98,16 +98,17 @@
 				echo "<form action='/Default/complete' method='POST'>
 				<input type='text' style='display:none;' name='complete' id='complete' />
 				<div class = 'd-flex justify-content-center'>
-				<label style='font-size:2em;' for = 'misc'  id = 'misc'>How much do you spend on miscellaneous? </label> <br>				
+				<label style='font-size:2em;' for = 'misc'  id = 'misc'>Monthly miscellaneous costs</label> <br>				
 				</div>
 				<div class = 'd-flex justify-content-center'>	
-				<input style = 'width: 30%;' class='form-control form-control-lg' name = 'misc' class='form-control form-control-lg' 	 type='number' min = '0'  id = 'misc' required> <br>
+				<input style = 'width: 30%;' class='form-control form-control-lg' name = 'misc' class='form-control form-control-lg'  type='number' min = '0'  id = 'misc' required> <br>
 				<input type='submit' value='Next' class='btn btn-black'>
 				</div>
 				</form>";
 			
 			}else { //complete
 				echo  "<h1><center>Your Portfolio</center></h1>";
+				echo "<h4 style='position:fixed; right:16%'>Percentage of yearly income spent</h4>";
 				echo "<canvas id='myChart' style='width:100%;max-width:600px'></canvas>";
 				echo "<script>
 					var xValues = ['Subscriptions', 'Housing', 'Food', 'Miscellaneous'];
@@ -144,6 +145,7 @@
 				if($percentageSpent >= 0.70 && $diff <= 10000){
 					// echo $percentageSpent . " " . $diff;
 				}
+
 				$percentage = round($percentageSpent * 100,2);
 					echo "<div class='wrap-circles'>
 					<div class='circle percent'  style='background-image: conic-gradient(#f01515 $percentage%, #08e65d 0);'>
@@ -151,8 +153,32 @@
 					</div>
 					</div>";
 
-				echo "Recommendations: We firstly ";
+				echo "With the data you have provided us, it appears that you are spending about $percentage% of your yearly income, this leaves you with $$diff.</br>";
 
+				$foodAvg = 200;
+				if($user->food > $foodAvg){
+					$foodSaved = $user->food - $foodAvg;
+					$totalExpenseYearLessFood = ($totalExpenseMonth*12) - ($foodSaved * 12);
+					$percentageSpentLessFood = ($totalExpenseYearLessFood) / ($yearEarned);
+					$diffLessFood = $yearEarned - $totalExpenseYearLessFood;
+					$percentageLessFood = round($percentageSpentLessFood * 100,2);
+					echo "If you cut down on food costs to that of the average, you would instead be spending about <b>$percentageLessFood%</b> of your yearly income, leaving you with <b>$$diffLessFood.</b></br>";
+				}
+				$totalExpenseMonthNoMisc = $user->monthExp + $user->housing + $user->food;
+				$totalExpenseYearNoMisc = ($totalExpenseMonthNoMisc*12);
+				$percentageSpentNoMisc = ($totalExpenseYearNoMisc) / ($yearEarned);
+				$diffNoMisc = $yearEarned - $totalExpenseYearNoMisc;
+				$percentageNoMisc = round($percentageSpentNoMisc * 100,2);
+				echo "If you cut down on miscellaneous costs, you would instead be spending about <b>$percentageNoMisc%</b> of your yearly income, leaving you with <b>$$diffNoMisc.</b></br>";
+				
+				$totalExpenseMonthNoSub = $user->housing + $user->food + $user->misc;
+				$totalExpenseYearNoSub = ($totalExpenseMonthNoSub*12);
+				$percentageSpentNoSub = ($totalExpenseYearNoSub) / ($yearEarned);
+				$diffNoSub = $yearEarned - $totalExpenseYearNoSub;
+				$percentageNoSub = round($percentageSpentNoSub * 100,2);
+
+				echo "If you cut down on subscription costs, you would instead be spending about <b>$percentageNoSub%</b> of your yearly income, leaving you with <b>$$diffNoSub.</b></br>";
+				echo "For more information on investing, visit <a href='/Default/Tips'>here</a>, or to find our recommended investment strategy visit <a href='/Default/Invest'>here</a>.";
 			}
 			?>
 	</div>
